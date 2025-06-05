@@ -4,11 +4,11 @@
   become: yes
   tasks:
     - name: copy war file to tomcat
-    copy:
-      src: "/var/snap/jenkins/4874/workspace/MavenAnsibleWebApp111/target/MavenAnsibleWebApp111.war"
-      dest: "/opt/tomcat/webapps/MavenAnsibleWebApp111.war"
-      remote_src: no
-  - name: Restart tomcat
-    systemd:
-      name: tomcat
-      state: restarted
+      copy:
+        src: "/var/snap/jenkins/4874/workspace/MavenAnsibleWebApp111/target/MavenAnsibleWebApp111.war"
+        dest: "/opt/tomcat/webapps/MavenAnsibleWebApp111.war"
+        remote_src: no
+    - name: Restart tomcat
+      systemd:
+        name: tomcat
+        state: restarted
